@@ -1,1 +1,5 @@
 venv
+.vscode
+restaurant_menu/__pycache__
+mysite/__pycache__
+restaurant_menu/migrations/__pycache__
