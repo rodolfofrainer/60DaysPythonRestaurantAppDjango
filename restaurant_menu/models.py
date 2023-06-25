@@ -10,7 +10,7 @@ MEAL_TYPES = (
     ("Drinks", "drinks"),
 )
 
-class Item(models.Model):
+class ItemModel(models.Model):
     meal = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=5, decimal_places=2)
