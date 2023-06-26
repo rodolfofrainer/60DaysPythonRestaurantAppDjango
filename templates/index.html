@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Restaurant Menu</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Restaurant Menu</h1>
-        {% for meal in meals%}
-            <h2>{{meal.1}}</h2>
-            {% for item in object_list%}
-                {% if item.meal_type == meal.0%}
-                    {% if item.status == False %}
-                        <a href="{% url 'menu_item_detail' item.pk%}"><h3><del>{{ item.meal }}</del></h3></a>
-                    {% else %}
-                        <a href="{% url 'menu_item_detail' item.pk%}"><h3>{{ item.meal }}</h3></a>
-                    {% endif %}
-                    <p>{{ item.description }}</p>
-                    <h4><strong>{{ item.price }}</strong></h4>
+{% extends 'base.html' %} {% load static %} 
+{% block title %} Restaurant Menu {% endblock %} 
+{% block content %}
+<div class="container">
+    <h1>Restaurant Menu</h1>
+    {% for meal in meals%}
+    <ul class="list-group list-group-flush">
+        <h2 class="pt-5">{{meal.1}}</h2>
+        {% for item in object_list%} 
+            {% if item.meal_type == meal.0%} 
+                {% if item.status == False %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
+                        <a href="{% url 'menu_item_detail' item.pk%}">
+                            <h3><del>{{ item.meal }}</del></h3>
+                        </a>
+                        <span class="badge bg-primary rounded-pill">{{ item.price }}</span>
+                    </li>
+                {% else %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
+                        <a href="{% url 'menu_item_detail' item.pk%}">
+                            <h3>{{ item.meal }}</h3>
+                        </a>
+                        <span class="badge bg-primary rounded-pill">{{ item.price }}</span>
+                    </li>
                 {% endif %}
-            {% endfor %}
+                <li class="list-group-item pt-0"><p>{{ item.description }}</p></li>
+            {% endif %} 
         {% endfor %}
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+    {% endfor %}
+    </ul> 
+</div>
+{% endblock %}
