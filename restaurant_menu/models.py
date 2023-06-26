@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 MEAL_TYPES = (
-    ("Starters", "starters"),
-    ("Salads", "salads"),
-    ("Main Course", "main_course"),
-    ("Desserts", "desserts"),
-    ("Drinks", "drinks"),
+    ("starters","Starters"),
+    ("salads","Salads"),
+    ("main_course","Main Course"),
+    ("desserts","Desserts"),
+    ("drinks","Drinks"),
 )
 
 class ItemModel(models.Model):

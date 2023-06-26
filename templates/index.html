@@ -10,7 +10,14 @@
     </head>
     <body>
         <h1>Restaurant Menu</h1>
-        <h3>{{meals}}</h3>
+        {% for meal in meals%}
+            <h2>{{meal.1}}</h2>
+        {% for item in object_list%}
+            <h3>{{ item.meal }}</h3>
+            <p>{{ item.description }}</p>
+            <h4><strong>{{ item.price }}</strong></h4>
+        {% endfor %}
+        {% endfor %}
         
         <script src="" async defer></script>
     </body>
