@@ -14,7 +14,11 @@
             <h2>{{meal.1}}</h2>
             {% for item in object_list%}
                 {% if item.meal_type == meal.0%}
-                    <h3>{{ item.meal }}</h3>
+                    {% if item.status == False %}
+                        <h3><del>{{ item.meal }}</del></h3>
+                    {% else %}
+                        <h3>{{ item.meal }}</h3>
+                    {% endif %}
                     <p>{{ item.description }}</p>
                     <h4><strong>{{ item.price }}</strong></h4>
                 {% endif %}
